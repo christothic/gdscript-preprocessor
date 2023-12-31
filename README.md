@@ -5,7 +5,7 @@ The GDScript Preprocessor Plugin extends the capabilities of GDScript, Godot's n
 
 ## Features
 - **Define Directives**: Define constants using the `##define` directive.
-- **Conditional Compilation**: Use `##if`, `##elseif`, `##else`, and `##endif` for conditional compilation of code segments.
+- **Conditional Compilation**: Use `##if`, `##else`, and `##endif` for conditional compilation of code segments.
 - **Multi-Threaded File Processing**: Speeds up file operations and parsing with multi-threading.
 - **Error Checking**: Robust error handling for directive nesting and syntax.
 - **Compatibility**: Designed to integrate seamlessly with the Godot Editor.
@@ -14,35 +14,55 @@ The GDScript Preprocessor Plugin extends the capabilities of GDScript, Godot's n
 1. Download latest release.
 2. Unzip the `addons/` directory into your Godot project folder.
 3. In Godot, go to `Project` > `Project Settings` > `Plugins`.
-4. Find the GDScript Preprocessor Plugin and make sure is `Activated`.
+4. Find the GDScript Preprocessor Plugin and make sure to `Enable` it by clicking the checkbox under the Status column.
 5. Sample project is included in the repository.
 
 ## Usage
 ### Basic Directives
-- `##define NAME VALUE`: Define a constant.
+- `##define NAME VALUE`: Define a constant, if no value is provided it defaults to `true` for now.
 - `##if CONDITION`: Compile the following code block if CONDITION is true.
-- `##elseif CONDITION`: To be implemented, use nested `##if` after the `##else` for now.
 - `##else`: Compile the following code block if none of the preceding conditions were true.
 - `##endif`: End of a conditional block.
+- ~~`##elseif CONDITION`~~: To be implemented, use nested `##if` after the `##else` for now.
 
-### Example:
+### Examples:
 ```gdscript
 ##define DEBUG_MODE
 func _ready():
-##if DEBUG_MODE
+##if defined DEBUG_MODE
     print("Debug mode is active.")
 ##else
     print("Running in production mode.")
 ##endif
 ```
-#### Woud get converted into:
+#### Would get converted into:
 ```gdscript
 ##define DEBUG_MODE
 func _ready():
-##if DEBUG_MODE
+##if defined DEBUG_MODE
     print("Debug mode is active.")
 ##else
 #--    print("Running in production mode.")
+##endif
+```
+#### And
+```gdscript
+##define DEBUG_MODE
+func _ready():
+##if defined DEBUG_MODE
+    print("Debug mode is active.")
+##else
+    print("Running in production mode.")
+##endif
+```
+#### Would get converted into:
+```gdscript
+##define VALUE 10
+func _ready():
+##if VALUE > 5
+    print("VALUE > 5")
+##else
+#--    print("VALUE <= 5")
 ##endif
 ```
 
