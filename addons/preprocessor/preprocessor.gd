@@ -50,13 +50,6 @@ func apply_defines_on_dictionary_from_file(file_str):
     var nest_status_stack = [ParseStatus.NORMAL]
     while file.get_position() < file.get_length():
         var line = file.get_line()
-        if line.find(define_string) == 0:
-            var define = line.trim_prefix(define_string)
-            define = define.split(" ", true, 2)
-            if define.size() == 1:
-                file_defines[define[0]] = true
-            if define.size() == 2:
-                file_defines[define[0]] = parse_string_value(define[1])
         if line.find(if_defined_string) == 0:
             nest_status_stack.append(parse_if_def_line(line, nest_status_stack.back(), file_defines))
             file_array.append(line)
@@ -75,6 +68,13 @@ func apply_defines_on_dictionary_from_file(file_str):
             file_array.append(line)
             continue
         var new_line = parse_code_line(line, nest_status_stack.back())
+        if new_line.find(define_string) == 0:
+            var define = line.trim_prefix(define_string)
+            define = define.split(" ", true, 2)
+            if define.size() == 1:
+                file_defines[define[0]] = true
+            if define.size() == 2:
+                file_defines[define[0]] = parse_string_value(define[1])
         file_array.append(new_line)
     file.close()
     if nest_status_stack.size() != 1 and nest_status_stack.back() != ParseStatus.NORMAL:
