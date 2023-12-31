@@ -36,6 +36,11 @@ func _ready():
     ##endif
 ```
 
+## Future releases:
+- Probably next will be implementing `##elseif`
+- Another thing I need to work is properly concatenating `defined(DEFINE)` directive to use in for example `##if defined(DEFINE1) or defined(DEFINE2)`, etc.
+- Maybe in the later future also implement proper C-like defines with macros and multiple lines with `\` or some other character, but for now is not something urgent that can't be acomplished with some functions.
+
 ## Advanced Usage
 - Utilize multi-threading for handling large projects. `Please send feedback on this!` I'm still a godot noob and a godot threads noob by extension, so this only has been tested on small projects on a fast computer.
 - Implement nested conditional directives for complex scenarios.
@@ -49,3 +54,4 @@ MIT, do whatever with this, I'm happy knowing it helped somewhat.
 
 ## Acknowledgments
 Thanks to the Godot community for the continuous support.
+
