@@ -29,11 +29,11 @@ The GDScript Preprocessor Plugin extends the capabilities of GDScript, Godot's n
 ```gdscript
 ##define DEBUG_MODE
 func _ready():
-    ##if DEBUG_MODE
-        print("Debug mode is active.")
-    ##else
-        print("Running in production mode.")
-    ##endif
+##if DEBUG_MODE
+    print("Debug mode is active.")
+##else
+    print("Running in production mode.")
+##endif
 ```
 
 ## Future releases:
