@@ -37,7 +37,7 @@ func _ready():
 ```
 
 ## Future releases:
-- Probably next will be implementing `##elseif`
+- Probably next will be implementing `##elseif`.
 - Another thing I need to work is properly concatenating `defined(DEFINE)` directive to use in for example `##if defined(DEFINE1) or defined(DEFINE2)`, etc.
 - Maybe in the later future also implement proper C-like defines with macros and multiple lines with `\` or some other character, but for now is not something urgent that can't be acomplished with some functions.
 
