@@ -11,10 +11,11 @@ The GDScript Preprocessor Plugin is an advanced tool for the Godot game engine. 
 - **Compatibility**: Designed to integrate seamlessly with the Godot Editor.
 
 ## Installation
-1. Clone the repository or download the ZIP file.
-2. Copy the plugin folder into your Godot project's `addons/` directory.
+1. Download latest release.
+2. Unzip the `addons/` directory into your Godot project folder.
 3. In Godot, go to `Project` > `Project Settings` > `Plugins`.
-4. Find the GDScript Preprocessor Plugin and click `Activate`.
+4. Find the GDScript Preprocessor Plugin and make sure is `Activated`.
+5. Sample project is included in the repository.
 
 ## Usage
 ### Basic Directives
@@ -39,3 +40,12 @@ func _ready():
 - Utilize multi-threading for handling large projects. `Please send feedback on this!` I'm still a godot noob and a godot threads noob by extension, so this only has been tested on small projects on a fast computer.
 - Implement nested conditional directives for complex scenarios.
 - Combine multiple `##define` directives to manage various build configurations.
+
+## Contributing
+Contributions to the GDScript Preprocessor Plugin are welcome! Just fork and send your pull request, I will test it as soon as I can.
+
+## License
+MIT, do whatever with this, I'm happy knowing it helped somewhat.
+
+## Acknowledgments
+Thanks to the Godot community for the continuous support.
