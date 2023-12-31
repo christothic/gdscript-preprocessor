@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://5j2a7qih661f"]
+
+[ext_resource type="Script" path="res://define_test_label.gd" id="1_etswb"]
+[ext_resource type="Script" path="res://expression_test_label.gd" id="2_6fuqc"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DefineTestLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 311.0
+offset_bottom = 159.0
+script = ExtResource("1_etswb")
+
+[node name="ExpressionTestLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 182.0
+offset_right = 323.0
+offset_bottom = 341.0
+script = ExtResource("2_6fuqc")
