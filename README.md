@@ -15,7 +15,7 @@ The GDScript Preprocessor Plugin extends the capabilities of GDScript, Godot's n
 2. Unzip the `addons/` directory into your Godot project folder.
 3. In Godot, go to `Project` > `Project Settings` > `Plugins`.
 4. Find the GDScript Preprocessor Plugin and make sure to `Enable` it by clicking the checkbox under the Status column.
-5. Sample project is included in the repository.
+5. Sample project is included in the repository if you want to try it on a safe environment.
 
 ## Usage
 ### Basic Directives
@@ -66,15 +66,25 @@ func _ready():
 ##endif
 ```
 
-## Future releases:
-- Probably next will be implementing `##elseif`.
-- Another thing I need to work is properly concatenating `defined(DEFINE)` directive to use in for example `##if defined(DEFINE1) or defined(DEFINE2)`, etc.
-- Maybe in the later future also implement proper C-like defines with macros and multiple lines with `\` or some other character, but for now is not something urgent that can't be acomplished with some functions.
-
 ## Advanced Usage
 - Utilize multi-threading for handling large projects. `Please send feedback on this!` I'm still a godot noob and a godot threads noob by extension, so this only has been tested on small projects on a fast computer.
 - Implement nested conditional directives for complex scenarios.
 - Combine multiple `##define` directives to manage various build configurations.
+- If your project needs different strings for the directives, or if you like to customize them to your style, all of them are defined near the top in `addons/preprocessor/preprocessor.gd` for you to change:
+```gdscript
+const define_string = "##define "
+const if_defined_string = "##if defined "
+const if_string = "##if "
+const elif_string = "##elseif "
+const else_string = "##else"
+const endif_string = "##endif"
+const not_defined_string = "#--"
+```
+
+## Future releases:
+- Probably next will be implementing `##elseif`.
+- Another thing I need to work is properly concatenating `defined(DEFINE)` directive to use in for example `##if defined(DEFINE1) or defined(DEFINE2)`, etc.
+- Maybe in the later future also implement proper C-like defines with macros and multiple lines with `\` or some other character, but for now is not something urgent that can't be acomplished with some functions.
 
 ## Contributing
 Contributions to the GDScript Preprocessor Plugin are welcome! Just fork and send your pull request, I will test it as soon as I can.
