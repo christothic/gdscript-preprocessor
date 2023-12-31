@@ -47,12 +47,12 @@ func _ready():
 ```
 #### And
 ```gdscript
-##define DEBUG_MODE
+##define VALUE 10
 func _ready():
-##if defined DEBUG_MODE
-    print("Debug mode is active.")
+##if VALUE > 5
+    print("VALUE > 5")
 ##else
-    print("Running in production mode.")
+    print("VALUE <= 5")
 ##endif
 ```
 #### Would get converted into:
